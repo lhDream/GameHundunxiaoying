@@ -66,5 +66,9 @@
 		<option src="xml/9.xml">下一章----初卷--第二章-悬浮的残骸</option>
 	</select>
 	
-	<!-- <image>images/index.jgp</image> -->
+	<!-- 图片路径 -->
+	<image>images/bg.jpg</image>
+	
+	<!-- 字体颜色  没有设置默认蓝色-->
+	<font>0xFFFFFF</font>
 </root>

@@ -1,27 +1,30 @@
 package com.luhua.hundun.code;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Map;
 
 public class Code {
 	/**
-	 * ндуб╠ЙлБ
+	 * О©╫О©╫О©╫б╠О©╫О©╫О©╫
 	 */
 	public String title;
 	/**
-	 * ндубдзхщ
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public char[] value;
 	/**
-	 * ндубринй
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public List<String> ask;
 	/**
-	 * ндуб╟╢е╔
+	 * О©╫О©╫О©╫б╟О©╫е╔
 	 */
 	public Map<String,String> button;
 	/**
-	 * ╠Ё╬╟м╪
+	 * О©╫О©╫О©╫О©╫м╪
 	 */
 	public String backGroundImage;
+	
+	public Color color;
 }

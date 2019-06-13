@@ -52,5 +52,9 @@
 		<option src="xml/11.xml">下一章----初卷--第四章-外骨骼装甲</option>
 	</select>
 	
-	<!-- <image>images/index.jgp</image> -->
+	<!-- 图片路径 -->
+	<image>images/bg.jpg</image>
+	
+	<!-- 字体颜色  没有设置默认蓝色-->
+	<font>0xFFFFFF</font>
 </root>
