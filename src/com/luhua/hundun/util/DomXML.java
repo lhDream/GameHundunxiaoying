@@ -21,14 +21,11 @@ import com.luhua.hundun.code.Code;
  */
 public class DomXML {
 	
-	public static void main(String[] args) throws Exception {
-		nextCode("1.xml");
-	}
-	
 	public static Code nextCode(String path) throws Exception{
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		String path1 = System.getProperty("user.dir")+"/static"+path;
+		String path1 = System.getProperty("user.dir")+"/static/"+path;
+		System.out.println(path1);
 		Document document = db.parse(path1);
 		/**
 		 * 标题部分
@@ -65,8 +62,11 @@ public class DomXML {
 			}
 			code.ask = pList;
 		}
-		
-		String image = document.getElementsByTagName("image").item(0).getTextContent();
+		NodeList images = document.getElementsByTagName("image");
+		String image = null;
+		if(images != null && images.item(0) != null) {
+			image = images.item(0).getTextContent();
+		}
 		code.backGroundImage = image;
 		return code;
 	}
