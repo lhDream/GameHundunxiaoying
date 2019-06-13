@@ -4,8 +4,10 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,9 +20,9 @@ import com.luhua.hundun.util.Images;
 
 
 /**
- * ³ÌÐòÖ÷½çÃæ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author 	luhua
- * @date	2019Äê6ÔÂ13ÈÕ
+ * @date	2019ï¿½ï¿½6ï¿½ï¿½13ï¿½ï¿½
  */
 public class MainJframe extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -32,10 +34,11 @@ public class MainJframe extends JFrame{
 	public MainJframe(Code code) {
 		super(code.title);
 		this.code = code;
+		
 		try {
-			setIconImage(Images.getBufferedImage("/static/images/logo.jpg"));
+			setIconImage(Images.getBufferedImage("images/logo.jpg"));
 		} catch (IOException e3) {
-			alert("logoÍ¼Æ¬¶ªÊ§£¡");
+			alert("not find image!!!");
 		}
 		setSize(700, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,24 +53,30 @@ public class MainJframe extends JFrame{
 		jp1.setPreferredSize(new Dimension(700, 450));
 		value = new JLabel();
 		value.setSize(700, 0);
-		value.setFont(new Font("ËÎÌå",Font.CENTER_BASELINE, 24));
+		value.setFont(new Font("å®‹ä½“",Font.CENTER_BASELINE, 24));
 		jp1.add(value);
 		jp2 = new JPanel();
 		jp2.setPreferredSize(new Dimension(700, 150));
 		
-		nextText();
 		
-		this.add(jp1);
+		add(jp1);
 		add(jp2);
+		nextText();
 		setVisible(true);
+		
+		jp1.setBackground(new java.awt.Color(0, 0, 0,0));
+		jp2.setBackground(new java.awt.Color(0, 0, 0,0));
+		setBg();
+//		Graphics g = this.getGraphics();
+//		bg(g);
 	}
 
 	public static void alert(Object message) {
-		JOptionPane.showMessageDialog(null,message,"Ö´ÐÐ½á¹û",JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null,message,"alert",JOptionPane.PLAIN_MESSAGE);
 	}
 
 	public static void err(Object message) {
-		JOptionPane.showMessageDialog(null,message,"Òì³£ÌáÊ¾",JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null,message,"err",JOptionPane.PLAIN_MESSAGE);
 	}
 
 	void JlabelSetText(JLabel jLabel, String longString) 
@@ -95,14 +104,17 @@ public class MainJframe extends JFrame{
 		jLabel.setText(builder.toString());
 	}
 	/**
-	 * ÏÂÒ»Ò³
+	 * ï¿½ï¿½Ò»Ò³
 	 */
 	void nextText() {
+		this.repaint();
 		try {
 			int len = code.value.length - index;
 			if(len>400) {
 				len = 400;
 			}
+//			jp1.removeAll();
+//			jp1.repaint();
 			JlabelSetText(value,new String(code.value,index,len));
 			index += len;
 		} catch (InterruptedException e2) {
@@ -119,13 +131,13 @@ public class MainJframe extends JFrame{
 					try {
 						new MainJframe(DomXML.nextCode((b)));
 					} catch (Exception e1) {
-						alert("ÎÄ¼þ¶ªÊ§");
+						alert("file not find");
 						System.exit(0);
 					}
 				});
 			});
 		}else {
-			JButton button = new JButton("ÏÂÒ»Ò³");
+			JButton button = new JButton("ä¸‹ä¸€é¡µ");
 			button.setFocusPainted(false);
 			button.addActionListener((e)->{
 				nextText();
@@ -134,4 +146,20 @@ public class MainJframe extends JFrame{
 			jp2.add(button);
 		}
 	}
+
+	@Override
+	public void update(Graphics g) {
+		super.update(g);
+	}
+
+
+	public void setBg(){ 
+    	((JPanel)this.getContentPane()).setOpaque(false); 
+    	ImageIcon img = Images.getImageIcon(this.code.backGroundImage);
+    	JLabel background = new JLabel(img);
+    	this.getLayeredPane().add(background, new Integer(Integer.MIN_VALUE)); 
+    	background.setBounds(0, 0, img.getIconWidth(), img.getIconHeight()); 
+    }
+
+	
 }

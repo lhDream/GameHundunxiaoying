@@ -15,9 +15,9 @@ import org.w3c.dom.NodeList;
 import com.luhua.hundun.code.Code;
 
 /**
- * dom解析
+ * dom jiexi
  * @author 	luhua
- * @date	2019年6月13日
+ * @date	2019-6-13 20:53:48
  */
 public class DomXML {
 	
@@ -25,21 +25,20 @@ public class DomXML {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		String path1 = System.getProperty("user.dir")+"/static/"+path;
-		System.out.println(path1);
 		Document document = db.parse(path1);
 		/**
-		 * 标题部分
+		 * title
 		 */
 		String title = document.getElementsByTagName("title").item(0).getTextContent();
 		Code code = new Code();
 		code.title = title;
 		/**
-		 * 文章部分
+		 * content
 		 */
 		String value = document.getElementsByTagName("text").item(0).getTextContent();
 		code.value = value.toCharArray();
 		/**
-		 * 按钮部分（选项部分）
+		 * button
 		 */
 		NodeList optionList = document.getElementsByTagName("option");
 		Map<String,String> list = new HashMap<String,String>();
@@ -52,7 +51,7 @@ public class DomXML {
 		code.button = list;
 		NodeList problemList = document.getElementsByTagName("problem");
 		/**
-		 * 问题部分
+		 * ask
 		 */
 		if(problemList != null) {
 			ArrayList<String> pList = new ArrayList<String>();
@@ -62,6 +61,9 @@ public class DomXML {
 			}
 			code.ask = pList;
 		}
+		/**
+		 * images
+		 */
 		NodeList images = document.getElementsByTagName("image");
 		String image = null;
 		if(images != null && images.item(0) != null) {

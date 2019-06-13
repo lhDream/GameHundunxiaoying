@@ -10,11 +10,11 @@ import javax.swing.ImageIcon;
 public class Images{
 	
 	public static BufferedImage getBufferedImage(String path) throws IOException {
-		return ImageIO.read(new File(System.getProperty("user.dir")+path));
+		return ImageIO.read(new File(System.getProperty("user.dir")+"/static/"+path));
 	}
 	
 	public static ImageIcon getImageIcon(String path) {
-		return new ImageIcon(System.getProperty("user.dir")+path);//ÕâÊÇ±³¾°Í¼Æ¬
+		return new ImageIcon(System.getProperty("user.dir")+"/static/"+path);//ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½Í¼Æ¬
 	}
 
 }
