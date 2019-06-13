@@ -1,0 +1,30 @@
+ 
+ 
+    This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+	该程序是免费软件：您可以重新分发和/或修改
+它是根据GNU通用公共许可证的条款发布的自由软件基
+金会，许可证的第3版，或（根据您的选择）任何更高
+版本。
+
+	该程序的分发是希望它有用，但没有任何保证; 甚至
+没有暗示的保证适销性或适用于特定用途的适用性。
+见GNU通用公共许可证了解更多详情。
+
+	您应该已收到GNU通用公共许可证的副本
+以及这个计划。如果没有，请参阅<https://www.gnu.org/licenses/>。
+
+
+
