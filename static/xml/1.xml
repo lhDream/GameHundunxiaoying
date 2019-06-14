@@ -67,9 +67,5 @@
 		<option src="xml/2.xml">下一章----初卷---亡魂2章-神魔之石</option>
 	</select>
 	
-	<!-- 图片路径 -->
 	<image>images/bg.jpg</image>
-	
-	<!-- 字体颜色  没有设置默认蓝色-->
-	<font>0xFFFFFF</font>
 </root>

@@ -48,9 +48,5 @@
 		<option src="xml/12.xml">下一章----初卷--第五章-紧急避难工具盒PSK</option>
 	</select>
 	
-	<!-- 图片路径 -->
-	<image>images/bg.jpg</image>
-	
-	<!-- 字体颜色  没有设置默认蓝色-->
-	<font>0xFFFFFF</font>
+	<!-- <image>images/index.jgp</image> -->
 </root>

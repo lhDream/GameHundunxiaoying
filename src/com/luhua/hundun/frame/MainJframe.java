@@ -1,10 +1,10 @@
 package com.luhua.hundun.frame;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -53,9 +53,7 @@ public class MainJframe extends JFrame{
 		jp1.setPreferredSize(new Dimension(700, 450));
 		value = new JLabel();
 		value.setSize(700, 0);
-		Font font = new Font("宋体",Font.CENTER_BASELINE, 24);
-		value.setFont(font);
-		value.setForeground(Color.blue);
+		value.setFont(new Font("宋体",Font.CENTER_BASELINE, 24));
 		jp1.add(value);
 		jp2 = new JPanel();
 		jp2.setPreferredSize(new Dimension(700, 150));
@@ -64,16 +62,13 @@ public class MainJframe extends JFrame{
 		add(jp1);
 		add(jp2);
 		nextText();
-		if(this.code.color != null) {
-			value.setForeground(code.color);
-		}
 		setVisible(true);
-		
 		
 		jp1.setBackground(new java.awt.Color(0, 0, 0,0));
 		jp2.setBackground(new java.awt.Color(0, 0, 0,0));
 		setBg();
-		
+//		Graphics g = this.getGraphics();
+//		bg(g);
 	}
 
 	public static void alert(Object message) {
@@ -151,6 +146,12 @@ public class MainJframe extends JFrame{
 			jp2.add(button);
 		}
 	}
+
+	@Override
+	public void update(Graphics g) {
+		super.update(g);
+	}
+
 
 	public void setBg(){ 
     	((JPanel)this.getContentPane()).setOpaque(false); 

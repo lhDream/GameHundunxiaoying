@@ -69,9 +69,5 @@
 		<option src="xml/3.xml">下一章----初卷---男亡魂1章-天堂大门</option>
 	</select>
 	
-	<!-- 图片路径 -->
-	<image>images/bg.jpg</image>
-	
-	<!-- 字体颜色  没有设置默认蓝色-->
-	<font>0x000000</font>
+	<!-- <image>images/index.jgp</image> -->
 </root>

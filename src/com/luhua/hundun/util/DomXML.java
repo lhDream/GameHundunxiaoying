@@ -1,7 +1,6 @@
 package com.luhua.hundun.util;
 
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -71,12 +70,6 @@ public class DomXML {
 			image = images.item(0).getTextContent();
 		}
 		code.backGroundImage = image;
-		
-		NodeList fontList = document.getElementsByTagName("font");
-		
-		if(fontList.item(0) != null) {
-			code.color = Color.decode(fontList.item(0).getTextContent());
-		}
 		return code;
 	}
     
