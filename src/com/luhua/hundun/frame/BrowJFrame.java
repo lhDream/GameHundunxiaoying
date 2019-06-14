@@ -6,8 +6,12 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 import com.luhua.hundun.code.Code;
+import com.luhua.hundun.util.DomXML;
 import com.luhua.hundun.util.Images;
 import com.teamdev.jxbrowser.chromium.Browser;
+import com.teamdev.jxbrowser.chromium.JSValue;
+import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
+import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 
@@ -19,11 +23,9 @@ import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 public class BrowJFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private Code code;
 	
 	public BrowJFrame(Code code) {
 		super(code.title);
-		this.code = code;
 		try {
 			setIconImage(Images.getBufferedImage("images/logo.jpg"));
 		} catch (IOException e3) {
@@ -36,13 +38,46 @@ public class BrowJFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);		
-		
 		setVisible(true);
+
+		JFrame java = this;
+		
+		browser.addLoadListener(new LoadAdapter() {
+            @Override
+            public void onFinishLoadingFrame(FinishLoadingEvent event) {
+                if (event.isMainFrame()) {
+                    JSValue window = browser.executeJavaScriptAndReturnValue("window");
+                    // 给jswindows对象添加一个扩展的属性
+                    window.asObject().setProperty("java", java);
+                }
+            }
+        });
+		
 		if(code.code == 1) {
 			browser.loadHTML(new String(code.value));
 		}else if(code.code == 2){
 			browser.loadURL(new String(code.value));
 		}
+	}
+	
+	public void nextUrl(String path) {
+		this.setVisible(false);
+		try {
+			Code nextCode = DomXML.nextCode((path));
+			if(nextCode.code == 1) {
+				new BrowJFrame(nextCode);
+			}else {
+				new MainJframe(nextCode);
+			}
+		} catch (Exception e1) {
+			MainJframe.alert("file not find");
+			System.exit(0);
+		}
+		
+	}
+	
+	public void alert(Object obj) {
+		MainJframe.alert(obj);
 	}
 
 }

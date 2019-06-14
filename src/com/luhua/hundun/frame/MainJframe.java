@@ -133,7 +133,12 @@ public class MainJframe extends JFrame{
 				button.addActionListener((e)->{
 					this.setVisible(false);
 					try {
-						new MainJframe(DomXML.nextCode((b)));
+						Code nextCode = DomXML.nextCode((b));
+						if(nextCode.code == 1) {
+							new BrowJFrame(nextCode);
+						}else {
+							new MainJframe(nextCode);
+						}
 					} catch (Exception e1) {
 						alert("file not find");
 						System.exit(0);
@@ -150,12 +155,6 @@ public class MainJframe extends JFrame{
 			jp2.add(button);
 		}
 	}
-
-	@Override
-	public void update(Graphics g) {
-		super.update(g);
-	}
-
 
 	public void setBg(){ 
     	((JPanel)this.getContentPane()).setOpaque(false); 

@@ -8,9 +8,17 @@
 			<head>
 				<meta charset="UTF-8"></meta>
 			</head>
+			<script>
+				function fun(){
+					java.alert("123456");//一个内置的弹窗
+				}
+				function next(){
+					java.nextUrl("xml/1.xml");//下一章的路径
+				}
+			</script>
 			<body>
-				<div>123</div>
-				<div>123</div>
+				<div style="color:red;" onclick="fun()">123</div>
+				<div onclick="next()">123</div>
 			</body>
 		</html>
 	]]>
