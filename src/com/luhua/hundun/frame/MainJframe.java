@@ -38,7 +38,6 @@ public class MainJframe extends JFrame{
 		try {
 			setIconImage(Images.getBufferedImage("images/logo.jpg"));
 		} catch (IOException e3) {
-			alert("not find image!!!");
 		}
 		setSize(700, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +51,8 @@ public class MainJframe extends JFrame{
 		jp1 = new JPanel();
 		jp1.setPreferredSize(new Dimension(700, 450));
 		value = new JLabel();
-		value.setSize(700, 0);
+		value.setSize(700, 450);
+		value.setPreferredSize(new Dimension(700, 450));
 		value.setFont(new Font("宋体",Font.CENTER_BASELINE, 24));
 		jp1.add(value);
 		jp2 = new JPanel();
@@ -108,19 +108,23 @@ public class MainJframe extends JFrame{
 	 */
 	void nextText() {
 		this.repaint();
-		try {
-			int len = code.value.length - index;
-			if(len>400) {
-				len = 400;
-			}
+		if(code.code == 1) {
+			value.setText(new String(code.value).trim());
+		}else {
+			try {
+				int len = code.value.length - index;
+				if(len>400) {
+					len = 400;
+				}
 //			jp1.removeAll();
 //			jp1.repaint();
-			JlabelSetText(value,new String(code.value,index,len));
-			index += len;
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
+				JlabelSetText(value,new String(code.value,index,len));
+				index += len;
+			} catch (InterruptedException e2) {
+				e2.printStackTrace();
+			}
 		}
-		if(index == this.code.value.length) {
+		if(index == this.code.value.length||code.code == 1) {
 			jp2.removeAll();
 			code.button.forEach((a,b)->{
 				JButton button = new JButton(a);

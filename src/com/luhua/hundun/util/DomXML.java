@@ -70,6 +70,15 @@ public class DomXML {
 			image = images.item(0).getTextContent();
 		}
 		code.backGroundImage = image;
+		
+		/**
+		 * code
+		 */
+		NodeList codes = document.getElementsByTagName("code");
+		if(codes != null && codes.item(0) != null) {
+			code.code = Integer.parseInt(codes.item(0).getTextContent());
+		}
+		
 		return code;
 	}
     

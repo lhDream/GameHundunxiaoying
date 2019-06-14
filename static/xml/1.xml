@@ -59,6 +59,9 @@
     ……………………
 	</text>
 	
+	<!-- html支持    值为1的时候支持HTML _非必须标签-->
+	<code>0</code>
+	
 	<!--  <ask>
 		<problem></problem>
 	</ask>-->
