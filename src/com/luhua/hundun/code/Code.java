@@ -1,5 +1,6 @@
 package com.luhua.hundun.code;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Map;
 
@@ -27,5 +28,7 @@ public class Code {
 	
 	
 	public Integer code = 0;
+	
+	public Color color;
 	
 }

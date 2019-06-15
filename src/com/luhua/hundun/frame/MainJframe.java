@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.io.IOException;
 
 import javax.swing.ImageIcon;
@@ -54,6 +53,9 @@ public class MainJframe extends JFrame{
 		value.setSize(700, 450);
 		value.setPreferredSize(new Dimension(700, 450));
 		value.setFont(new Font("宋体",Font.CENTER_BASELINE, 24));
+		value.setForeground(code.color);
+		
+		
 		jp1.add(value);
 		jp2 = new JPanel();
 		jp2.setPreferredSize(new Dimension(700, 150));
