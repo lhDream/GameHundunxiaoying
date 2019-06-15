@@ -22,7 +22,7 @@ public class Start {
 				path = "xml/1.xml";
 			}
 			Code code = DomXML.nextCode(path);
-			if(code.code == 1) {
+			if(code.code == 1 || code.code == 2) {
 				new BrowJFrame(code);
 			}else {
 				new MainJframe(code);

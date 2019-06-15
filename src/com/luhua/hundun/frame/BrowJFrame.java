@@ -56,7 +56,7 @@ public class BrowJFrame extends JFrame{
 		if(code.code == 1) {
 			browser.loadHTML(new String(code.value));
 		}else if(code.code == 2){
-			browser.loadURL(new String(code.value));
+			browser.loadURL(DomXML.getRootURL()+new String(code.value));
 		}
 	}
 	
