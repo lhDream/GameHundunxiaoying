@@ -27,6 +27,10 @@ public class Start {
 			StartJFrame main = new StartJFrame(code);
 			if(code.code >0) {
 				main.add(new BrowJFrame(code,main));
+=======
+			if(code.code == 1 || code.code == 2) {
+				new BrowJFrame(code);
+>>>>>>> parent of 8f8ddf6... 增加网络URL支持
 			}else {
 				main.add(new MainJframe(code,main));
 			}
