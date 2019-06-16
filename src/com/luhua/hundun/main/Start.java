@@ -23,6 +23,7 @@ public class Start {
 				path = "xml/1.xml";
 			}
 			Code code = DomXML.nextCode(path);
+<<<<<<< HEAD
 			StartJFrame main = new StartJFrame(code);
 			if(code.code >0) {
 				main.add(new BrowJFrame(code,main));

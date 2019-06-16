@@ -50,8 +50,6 @@ public class BrowJFrame extends JPanel{
 			browser.loadHTML(new String(code.value));
 		}else if(code.code == 2){
 			browser.loadURL(DomXML.getRootURL()+new String(code.value));
-		}else if(code.code == 3) {
-			browser.loadURL(new String(code.value));
 		}
 	}
 	
@@ -60,8 +58,13 @@ public class BrowJFrame extends JPanel{
 		this.main.repaint();
 		try {
 			Code nextCode = DomXML.nextCode((path));
+<<<<<<< HEAD
 			if(nextCode.code >0) {
 				this.add(new BrowJFrame(nextCode,this.main));
+=======
+			if(nextCode.code == 1) {
+				new BrowJFrame(nextCode);
+>>>>>>> parent of 8f8ddf6... 增加网络URL支持
 			}else {
 				this.add(new MainJframe(nextCode,this.main));
 			}

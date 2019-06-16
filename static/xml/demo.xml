@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
+<root ID="s">
 	<title>第四章 外骨骼装甲</title>
-	<text>
+	<text ID="content">
 	<![CDATA[
 		html/demo.html
 	]]>
@@ -11,9 +11,17 @@
 
 	<!--
 	value == 1    -   HTML		直接写的HTML内容
-	value == 2	  -   HTML_URL	编写好的HTML文件路径 例:html/index.html
-	value == 3    -   HTTP_URL	网络上的HTML页面路径
-	value == 0  -   txt 		普通txt文本内容
+	value == 2	  -   HTML_URL	编写好的HTML文件路径
+	value == ...  -   txt 		普通txt文本内容
 	-->
 	<code>2</code>
+<<<<<<< HEAD
+=======
+
+	<select>
+		<option src="xml/12.xml">下一章----初卷--第五章-紧急避难</option>
+	</select>
+
+	<!-- <image>images/index.jgp</image> -->
+>>>>>>> parent of 8f8ddf6... 增加网络URL支持
 </root>
