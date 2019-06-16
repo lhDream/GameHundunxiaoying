@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<title>第四章 外骨骼装甲</title>
+	<text>
+	<![CDATA[
+		http://www.baidu.com
+	]]>
+	</text>
+
+	<!-- <ask> <problem></problem> </ask> -->
+
+	<!--
+	value == 1    -   HTML		直接写的HTML内容
+	value == 2	  -   HTML_URL	编写好的HTML文件路径 例:html/index.html
+	value == 3    -   HTTP_URL	网络上的HTML页面路径
+	value == 0  -   txt 		普通txt文本内容
+	-->
+	<code>3</code>
+</root>
