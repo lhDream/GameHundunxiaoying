@@ -1,4 +1,4 @@
-package com.luhua.hundun.main;
+﻿package com.luhua.hundun.main;
 
 import com.luhua.hundun.code.Code;
 import com.luhua.hundun.frame.BrowJFrame;
@@ -26,7 +26,6 @@ public class Start {
 			StartJFrame main = new StartJFrame(code);
 			if(code.code >0) {
 				main.add(new BrowJFrame(code,main));
-
 			if(code.code == 1 || code.code == 2) {
 				new BrowJFrame(code);
 			}else {
