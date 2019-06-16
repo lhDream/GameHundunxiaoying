@@ -57,8 +57,6 @@ public class BrowJFrame extends JFrame{
 			browser.loadHTML(new String(code.value));
 		}else if(code.code == 2){
 			browser.loadURL(DomXML.getRootURL()+new String(code.value));
-		}else if(code.code == 3) {
-			browser.loadURL(new String(code.value));
 		}
 	}
 	
@@ -66,7 +64,7 @@ public class BrowJFrame extends JFrame{
 		this.setVisible(false);
 		try {
 			Code nextCode = DomXML.nextCode((path));
-			if(nextCode.code >0) {
+			if(nextCode.code == 1) {
 				new BrowJFrame(nextCode);
 			}else {
 				new MainJframe(nextCode);
