@@ -22,10 +22,6 @@ import com.luhua.hundun.code.Code;
  */
 public class DomXML {
 	
-	public static String getRootURL() {
-		return System.getProperty("user.dir")+"/static/";
-	}
-	
 	public static Code nextCode(String path) throws Exception{
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
