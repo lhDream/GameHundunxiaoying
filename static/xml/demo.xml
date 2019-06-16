@@ -1,6 +1,5 @@
 ﻿
 <?xml version="1.0" encoding="UTF-8"?>
-增加网络URL支持
 <root ID="s">
 	<title>第四章 外骨骼装甲</title>
 	<text ID="content">
@@ -16,12 +15,11 @@
 	value == 2	  -   HTML_URL	编写好的HTML文件路径
 	value == ...  -   txt 		普通txt文本内容
 	-->
-增加网络URL支持
 	<code>2</code>
 
 	<select>
 		<option src="xml/12.xml">下一章----初卷--第五章-紧急避难</option>
 	</select>
-增加网络URL支持
+
 	<!-- <image>images/index.jgp</image> -->
 </root>
