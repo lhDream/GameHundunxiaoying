@@ -3,6 +3,7 @@ package com.luhua.hundun.main;
 import com.luhua.hundun.code.Code;
 import com.luhua.hundun.frame.BrowJFrame;
 import com.luhua.hundun.frame.MainJframe;
+import com.luhua.hundun.frame.StartJFrame;
 import com.luhua.hundun.util.DomXML;
 import com.luhua.hundun.util.Propertie;
 
@@ -22,11 +23,13 @@ public class Start {
 				path = "xml/1.xml";
 			}
 			Code code = DomXML.nextCode(path);
+			StartJFrame main = new StartJFrame(code);
 			if(code.code >0) {
-				new BrowJFrame(code);
+				main.add(new BrowJFrame(code,main));
 			}else {
-				new MainJframe(code);
+				main.add(new MainJframe(code,main));
 			}
+			main.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

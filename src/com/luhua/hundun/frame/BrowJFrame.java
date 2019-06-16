@@ -1,13 +1,13 @@
 package com.luhua.hundun.frame;
 
 import java.awt.BorderLayout;
-import java.io.IOException;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.luhua.hundun.code.Code;
 import com.luhua.hundun.util.DomXML;
-import com.luhua.hundun.util.Images;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
@@ -20,27 +20,20 @@ import com.teamdev.jxbrowser.chromium.swing.BrowserView;
  * @author 	luhua
  * @date	2019年6月14日
  */
-public class BrowJFrame extends JFrame{
+public class BrowJFrame extends JPanel{
 
 	private static final long serialVersionUID = 1L;
+	private JFrame main;
 	
-	public BrowJFrame(Code code) {
-		super(code.title);
-		try {
-			setIconImage(Images.getBufferedImage("images/logo.jpg"));
-		} catch (IOException e3) {
-		}
+	public BrowJFrame(Code code,JFrame main) {
+		this.main = main;
 		Browser browser = new Browser();  
         BrowserView view = new BrowserView(browser); 
 	    add(view, BorderLayout.CENTER);
-	    
-		setSize(700, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		setLocationRelativeTo(null);		
-		setVisible(true);
+		setPreferredSize(new Dimension(700, 600));
 
-		JFrame java = this;
+		JPanel java = this;
+		setVisible(true);
 		
 		browser.addLoadListener(new LoadAdapter() {
             @Override
@@ -63,13 +56,14 @@ public class BrowJFrame extends JFrame{
 	}
 	
 	public void nextUrl(String path) {
-		this.setVisible(false);
+		this.main.removeAll();
+		this.main.repaint();
 		try {
 			Code nextCode = DomXML.nextCode((path));
 			if(nextCode.code >0) {
-				new BrowJFrame(nextCode);
+				this.add(new BrowJFrame(nextCode,this.main));
 			}else {
-				new MainJframe(nextCode);
+				this.add(new MainJframe(nextCode,this.main));
 			}
 		} catch (Exception e1) {
 			MainJframe.alert("file not find");
@@ -81,5 +75,4 @@ public class BrowJFrame extends JFrame{
 	public void alert(Object obj) {
 		MainJframe.alert(obj);
 	}
-
 }

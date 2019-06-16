@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,30 +22,21 @@ import com.luhua.hundun.util.Images;
  * @author 	luhua
  * @date	2019��6��13��
  */
-public class MainJframe extends JFrame{
+public class MainJframe extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JPanel jp1,jp2;
 	private JLabel value;
 	private Code code;
 	private int index = 0;
+	private JFrame main;
 
-	public MainJframe(Code code) {
-		super(code.title);
+	public MainJframe(Code code,JFrame main) {
+		this.main = main;
 		this.code = code;
 		
-		try {
-			setIconImage(Images.getBufferedImage("images/logo.jpg"));
-		} catch (IOException e3) {
-		}
-		setSize(700, 600);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
-		setLocationRelativeTo(null);
+		setPreferredSize(new Dimension(700, 600));
 		setLayout(new FlowLayout());
 
-		jp2 = new JPanel();
-		jp2.setSize(700, 200);
-		
 		jp1 = new JPanel();
 		jp1.setPreferredSize(new Dimension(700, 450));
 		value = new JLabel();
@@ -133,13 +123,14 @@ public class MainJframe extends JFrame{
 				button.setFocusPainted(false);
 				jp2.add(button);
 				button.addActionListener((e)->{
-					this.setVisible(false);
+					this.main.removeAll();
+					this.main.repaint();
 					try {
 						Code nextCode = DomXML.nextCode((b));
 						if(nextCode.code == 1) {
-							new BrowJFrame(nextCode);
+							this.main.add(new BrowJFrame(nextCode,this.main));
 						}else {
-							new MainJframe(nextCode);
+							this.main.add(new MainJframe(nextCode,this.main));
 						}
 					} catch (Exception e1) {
 						alert("file not find");
@@ -159,10 +150,10 @@ public class MainJframe extends JFrame{
 	}
 
 	public void setBg(){ 
-    	((JPanel)this.getContentPane()).setOpaque(false); 
+    	this.setOpaque(false); 
     	ImageIcon img = Images.getImageIcon(this.code.backGroundImage);
     	JLabel background = new JLabel(img);
-    	this.getLayeredPane().add(background, new Integer(Integer.MIN_VALUE)); 
+    	this.add(background, new Integer(Integer.MIN_VALUE)); 
     	background.setBounds(0, 0, img.getIconWidth(), img.getIconHeight()); 
     }
 
