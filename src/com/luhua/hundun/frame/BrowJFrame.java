@@ -1,4 +1,4 @@
-package com.luhua.hundun.frame;
+﻿package com.luhua.hundun.frame;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -58,13 +58,14 @@ public class BrowJFrame extends JPanel{
 		this.main.repaint();
 		try {
 			Code nextCode = DomXML.nextCode((path));
-<<<<<<< HEAD
+
 			if(nextCode.code >0) {
 				this.add(new BrowJFrame(nextCode,this.main));
-=======
+
+
 			if(nextCode.code == 1) {
 				new BrowJFrame(nextCode);
->>>>>>> parent of 8f8ddf6... 增加网络URL支持
+
 			}else {
 				this.add(new MainJframe(nextCode,this.main));
 			}
