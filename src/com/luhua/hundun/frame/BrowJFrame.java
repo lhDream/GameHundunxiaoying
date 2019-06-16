@@ -58,8 +58,6 @@ public class BrowJFrame extends JPanel{
 		this.main.repaint();
 		try {
 			Code nextCode = DomXML.nextCode((path));
-			if(nextCode.code >0) {
-				this.add(new BrowJFrame(nextCode,this.main));
 			if(nextCode.code == 1) {
 				new BrowJFrame(nextCode);
 

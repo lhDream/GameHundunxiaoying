@@ -23,9 +23,7 @@ public class Start {
 				path = "xml/1.xml";
 			}
 			Code code = DomXML.nextCode(path);
-			StartJFrame main = new StartJFrame(code);
-			if(code.code >0) {
-				main.add(new BrowJFrame(code,main));
+增加网络URL支持
 			if(code.code == 1 || code.code == 2) {
 				new BrowJFrame(code);
 			}else {
